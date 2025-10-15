@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter | Ray Mwabu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🌡️ Temperature Converter</h1>
+            <p>Convert between Celsius, Fahrenheit, and Kelvin</p>
+        </header>
+
+        <main class="converter-container">
+            <!-- Input Section -->
+            <div class="input-section">
+                <div class="input-group">
+                    <label for="temperature-input">Enter Temperature:</label>
+                    <input 
+                        type="number" 
+                        id="temperature-input" 
+                        placeholder="e.g., 100"
+                        step="0.1"
+                    >
+                    <span class="error-message" id="input-error"></span>
+                </div>
+
+                <div class="unit-selection">
+                    <label>Convert from:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="from-unit" value="celsius" checked>
+                            <span class="radio-custom"></span>
+                            Celsius (°C)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="from-unit" value="fahrenheit">
+                            <span class="radio-custom"></span>
+                            Fahrenheit (°F)
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="from-unit" value="kelvin">
+                            <span class="radio-custom"></span>
+                            Kelvin (K)
+                        </label>
+                    </div>
+                </div>
+
+                <button id="convert-btn" class="convert-btn">Convert Temperature</button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section">
+                <h3>Conversion Results</h3>
+                <div class="results-grid">
+                    <div class="result-card" id="celsius-result">
+                        <h4>Celsius</h4>
+                        <div class="result-value">--</div>
+                        <div class="result-unit">°C</div>
+                    </div>
+                    <div class="result-card" id="fahrenheit-result">
+                        <h4>Fahrenheit</h4>
+                        <div class="result-value">--</div>
+                        <div class="result-unit">°F</div>
+                    </div>
+                    <div class="result-card" id="kelvin-result">
+                        <h4>Kelvin</h4>
+                        <div class="result-value">--</div>
+                        <div class="result-unit">K</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Conversion Table -->
+            <div class="reference-section">
+                <h3>Common Temperature Conversions</h3>
+                <div class="conversion-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Celsius</th>
+                                <th>Fahrenheit</th>
+                                <th>Kelvin</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>-40°C</td>
+                                <td>-40°F</td>
+                                <td>233.15K</td>
+                                <td>Extremely Cold</td>
+                            </tr>
+                            <tr>
+                                <td>0°C</td>
+                                <td>32°F</td>
+                                <td>273.15K</td>
+                                <td>Water Freezes</td>
+                            </tr>
+                            <tr>
+                                <td>20°C</td>
+                                <td>68°F</td>
+                                <td>293.15K</td>
+                                <td>Room Temperature</td>
+                            </tr>
+                            <tr>
+                                <td>37°C</td>
+                                <td>98.6°F</td>
+                                <td>310.15K</td>
+                                <td>Human Body</td>
+                            </tr>
+                            <tr>
+                                <td>100°C</td>
+                                <td>212°F</td>
+                                <td>373.15K</td>
+                                <td>Water Boils</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Created by Ray Mwabu Chishala | Oasis Infobyte Internship</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

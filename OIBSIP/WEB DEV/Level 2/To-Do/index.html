@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMaster Pro | Smart To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-tasks"></i>
+                    <h1>TaskMaster Pro</h1>
+                </div>
+                <div class="app-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" id="total-tasks">0</span>
+                        <span class="stat-label">Total Tasks</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="pending-tasks">0</span>
+                        <span class="stat-label">Pending</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" id="completed-tasks">0</span>
+                        <span class="stat-label">Completed</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Add Task Section -->
+            <section class="add-task-section">
+                <div class="add-task-card">
+                    <h2>Add New Task</h2>
+                    <form id="task-form" class="task-form">
+                        <div class="input-group">
+                            <input 
+                                type="text" 
+                                id="task-input" 
+                                placeholder="What needs to be done?" 
+                                required
+                                maxlength="200"
+                            >
+                            <button type="submit" class="add-btn">
+                                <i class="fas fa-plus"></i>
+                                Add Task
+                            </button>
+                        </div>
+                        <div class="task-options">
+                            <div class="priority-selector">
+                                <label>Priority:</label>
+                                <select id="priority-select">
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                            <div class="category-selector">
+                                <label>Category:</label>
+                                <select id="category-select">
+                                    <option value="personal">Personal</option>
+                                    <option value="work" selected>Work</option>
+                                    <option value="shopping">Shopping</option>
+                                    <option value="health">Health</option>
+                                    <option value="education">Education</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Filters and Controls -->
+            <section class="controls-section">
+                <div class="controls-card">
+                    <div class="filter-group">
+                        <label>Filter by:</label>
+                        <select id="filter-select">
+                            <option value="all">All Tasks</option>
+                            <option value="pending">Pending Only</option>
+                            <option value="completed">Completed Only</option>
+                        </select>
+                        <select id="category-filter">
+                            <option value="all">All Categories</option>
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="health">Health</option>
+                            <option value="education">Education</option>
+                        </select>
+                    </div>
+                    <div class="action-buttons">
+                        <button id="clear-completed" class="btn-secondary">
+                            <i class="fas fa-trash"></i>
+                            Clear Completed
+                        </button>
+                        <button id="clear-all" class="btn-danger">
+                            <i class="fas fa-broom"></i>
+                            Clear All
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks Sections -->
+            <section class="tasks-sections">
+                <!-- Pending Tasks -->
+                <div class="tasks-column">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-clock"></i>
+                            Pending Tasks
+                            <span class="task-count" id="pending-count">0</span>
+                        </h2>
+                    </div>
+                    <div class="tasks-list" id="pending-tasks-list">
+                        <!-- Pending tasks will be added here dynamically -->
+                        <div class="empty-state">
+                            <i class="fas fa-check-circle"></i>
+                            <p>No pending tasks! Add a new task to get started.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Completed Tasks -->
+                <div class="tasks-column">
+                    <div class="section-header">
+                        <h2>
+                            <i class="fas fa-check-circle"></i>
+                            Completed Tasks
+                            <span class="task-count" id="completed-count">0</span>
+                        </h2>
+                    </div>
+                    <div class="tasks-list" id="completed-tasks-list">
+                        <!-- Completed tasks will be added here dynamically -->
+                        <div class="empty-state">
+                            <i class="fas fa-trophy"></i>
+                            <p>No completed tasks yet. Complete some tasks to see them here!</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Created with <i class="fas fa-heart"></i> by Ray Mwabu Chishala | Oasis Infobyte Internship</p>
+        </footer>
+    </div>
+
+    <!-- Edit Task Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Task</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <form id="edit-task-form" class="task-form">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="edit-task-input" 
+                        placeholder="Edit your task..." 
+                        required
+                        maxlength="200"
+                    >
+                </div>
+                <div class="task-options">
+                    <div class="priority-selector">
+                        <label>Priority:</label>
+                        <select id="edit-priority-select">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="category-selector">
+                        <label>Category:</label>
+                        <select id="edit-category-select">
+                            <option value="personal">Personal</option>
+                            <option value="work">Work</option>
+                            <option value="shopping">Shopping</option>
+                            <option value="health">Health</option>
+                            <option value="education">Education</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-secondary" id="cancel-edit">Cancel</button>
+                    <button type="submit" class="add-btn">Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

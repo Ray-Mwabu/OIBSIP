@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | RayByte Tech Solution</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="dashboard-nav">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-shield-alt"></i>
+                <span>RayByte Tech Solution</span>
+            </div>
+            <div class="nav-user">
+                <div class="user-info">
+                    <img src="https://ui-avatars.com/api/?name=User+Demo&background=2a9d8f&color=fff" alt="User" class="user-avatar">
+                    <span class="user-name" id="user-display-name">Loading...</span>
+                </div>
+                <div class="nav-actions">
+                    <button id="logout-btn" class="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="dashboard-main">
+        <div class="dashboard-container">
+            <!-- Welcome Section -->
+            <section class="welcome-section">
+                <div class="welcome-card">
+                    <h1>Welcome to Your Dashboard, <span id="welcome-user-name">User</span>! 👋</h1>
+                    <p>You have successfully accessed the secured area of the application.</p>
+                    <div class="login-info">
+                        <p><strong>Last Login:</strong> <span id="last-login-time">Loading...</span></p>
+                        <p><strong>Account Created:</strong> <span id="account-created">Loading...</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Features Grid -->
+            <section class="features-section">
+                <h2>Dashboard Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h3>Security Center</h3>
+                        <p>Manage your account security settings, two-factor authentication, and login activity.</p>
+                        <button class="feature-btn">Manage Security</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Analytics</h3>
+                        <p>View your usage statistics, activity reports, and performance metrics.</p>
+                        <button class="feature-btn">View Analytics</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Settings</h3>
+                        <p>Customize your profile, notification preferences, and application settings.</p>
+                        <button class="feature-btn">Open Settings</button>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-history"></i>
+                        </div>
+                        <h3>Activity Log</h3>
+                        <p>Review your recent activities, login history, and account changes.</p>
+                        <button class="feature-btn">View Log</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Recent Activity -->
+            <section class="activity-section">
+                <h2>Recent Activity</h2>
+                <div class="activity-timeline">
+                    <div class="activity-item">
+                        <div class="activity-icon success">
+                            <i class="fas fa-sign-in-alt"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Successful Login</h4>
+                            <p>You logged in to your account</p>
+                            <span class="activity-time" id="current-login-time"></span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon info">
+                            <i class="fas fa-user-edit"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Profile Updated</h4>
+                            <p>Your profile information was updated</p>
+                            <span class="activity-time">2 days ago</span>
+                        </div>
+                    </div>
+
+                    <div class="activity-item">
+                        <div class="activity-icon warning">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="activity-content">
+                            <h4>Password Changed</h4>
+                            <p>Your password was successfully updated</p>
+                            <span class="activity-time">1 week ago</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Session Timer -->
+    <div class="session-timer" id="session-timer">
+        <i class="fas fa-clock"></i>
+        <span>Session expires in: <strong id="session-time">30:00</strong></span>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html>
